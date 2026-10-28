@@ -1,0 +1,1 @@
+https://min-idznullah-said-data-analyst-portofolio.vercel.app/

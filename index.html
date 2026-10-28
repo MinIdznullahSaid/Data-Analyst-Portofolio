@@ -1,16 +1,314 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Analyst Portfolio - Min Idznullah Said</title>
+    <title>Portofolio Data Analyst - Min Idznullah Said</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --badge-bg: #eff6ff;
+            --badge-text: #1d4ed8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 1rem 2rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .project-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2.5rem;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        /* Membalik posisi gambar dan teks secara bergantian agar dinamis */
+        .project-section:nth-child(even) {
+            direction: rtl;
+        }
+
+        .project-section:nth-child(even) .project-content {
+            direction: ltr;
+        }
+
+        .project-content h2 {
+            font-size: 1.75rem;
+            margin-top: 0;
+            color: #0f172a;
+        }
+
+        .project-content p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        /* Styling untuk Tech Stack / Tools Terpisah */
+        .tech-stack {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-badge {
+            background-color: var(--badge-bg);
+            color: var(--badge-text);
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .project-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Responsif untuk layar HP / Mobile */
+        @media (max-width: 768px) {
+            .project-section, .project-section:nth-child(even) {
+                grid-template-columns: 1fr;
+                direction: ltr;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Container Slideshow */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        /* Tombol Navigasi Prev & Next */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 12px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s ease;
+            border-radius: 0 3px 3px 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Efek Animasi Fade */
+        .fade {
+            animation-name: fade;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes fade {
+            from { opacity: .4; }
+            to { opacity: 1; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Data Analyst Portfolio</h1>
-    <p>Explore my data analysis projects below:</p>
-    <ul>
-        <li><a href="./CoffeeSalesAnalysis/">Coffee Sales Analysis</a></li>
-        <li><a href="./EcommerceSalesAnalysis/">E-Commerce Sales Analysis</a></li>
-    </ul>
+
+    <header>
+        <h1>Portofolio Data Analyst</h1>
+        <p>By : Min Idznullah Said</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Proyek 1 -->
+        <section class="project-section">
+            <div class="project-content">
+                <h2>1. Coffee Shop Sales Analysis</h2>
+
+                <!-- Tools Terpisah -->
+                <div class="tech-stack">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Pandas</span>
+                    <span class="tech-badge">NumPy</span>
+                    <span class="tech-badge">Seaborn</span>
+                    <span class="tech-badge">Matplotlib</span>
+                    <span class="tech-badge">Jupyter Notebook</span>
+                </div>
+
+                <p>Melakukan analisis eksploratif mendalam terhadap dataset transaksi penjualan kedai kopi. Fokus pada pembersihan data, rekayasa fitur waktu, serta visualisasi tren penjualan harian, produk terlaris, dan jam operasional sibuk untuk mendukung pengambilan keputusan bisnis.</p>
+                <a href="https://github.com/MinIdznullahSaid/Data-Analyst-Portofolio/tree/main/CoffeeSalesAnalysis" target="_blank" class="btn">Lihat Detail</a>
+            </div>
+            <div class="project-image">
+                <div class="slideshow-container">
+                    <div class="slide fade">
+                        <img src="Assets/monthly-sales.png" alt="Monthly Sales">
+                    </div>
+                    <div class="slide fade">
+                        <img src="Assets/daily-sales-by-store.png" alt="Daily Sales by Store">
+                    </div>
+                    <div class="slide fade">
+                        <img src="Assets/hourly-sales-by-store.png" alt="Hourly Sales by Store">
+                    </div>
+                    <div class="slide fade">
+                        <img src="Assets/hourly-sales-by-product.png" alt="Hourly Sales by Product">
+                    </div>
+
+                    <!-- Tombol Navigasi Next/Prev -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyek 2 -->
+        <section class="project-section">
+            <div class="project-content">
+                <h2>2. E-Commerce Performance Dashboard</h2>
+
+                <!-- Tools Terpisah -->
+                <div class="tech-stack">
+                    <span class="tech-badge">Microsoft Power BI</span>
+                    <span class="tech-badge">Data Visualization</span>
+                </div>
+
+                <p>Membangun <em>dashboard</em> analitik komprehensif untuk memonitor metrik utama <em>e-commerce</em> seperti <em>Total Revenue</em>, tingkat retensi pengguna, dan analisis perilaku pembelian secara visual dan interaktif.</p>
+                <a href="https://github.com/MinIdznullahSaid/Data-Analyst-Portofolio/tree/main/EcommerceSalesAnalysis" target="_blank" class="btn">Lihat Detail</a>
+            </div>
+            <div class="project-image">
+                <img src="Assets/E-Commerse_Sales_Dashboard.png" alt="Dashboard TheLook E-Commerce">
+            </div>
+        </section>
+
+        <!-- Proyek 3 -->
+        <section class="project-section">
+            <div class="project-content">
+                <h2>3. TechStore Sales Analysis</h2>
+
+                <!-- Tools Terpisah -->
+                <div class="tech-stack">
+                    <span class="tech-badge">Microsoft Excel</span>
+                    <span class="tech-badge">Feature Engineering</span>
+                    <span class="tech-badge">Looker Studio</span>
+                </div>
+
+                <p>Analisis data komprehensif pada lini produk dan transaksi TechStore. Menyoroti proses manipulasi data, identifikasi pola pembelian pelanggan terhadap produk teknologi, serta penyajian wawasan berbasis data secara terstruktur.</p>
+                <a href="https://github.com/MinIdznullahSaid/Data-Analyst-Portofolio/tree/main/TechStoreSalesAnalysis" target="_blank" class="btn">Lihat Detail</a>
+            </div>
+            <div class="project-image">
+                <img src="Assets/Dashboard_TechStore_Preview.png" alt="Dashboard TechStore">
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JavaScript untuk Slideshow -->
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Fungsi untuk tombol Next / Prev
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex - 1].style.display = "block";
+        }
+
+        // Opsional: Otomatis bergeser setiap 4 detik
+        setInterval(function() {
+            plusSlides(1);
+        }, 4000);
+    </script>
+
 </body>
 </html>
